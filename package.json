@@ -1,7 +1,7 @@
 {
   "name": "@mrados7/shadcn-components",
   "private": false,
-  "version": "0.0.9",
+  "version": "0.0.12",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,11 +14,14 @@
     ".": {
       "types": "./dist/main.d.ts",
       "default": "./dist/main.js"
-    }
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
-  "files": ["dist"], 
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -53,6 +56,7 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1",
-    "vite-plugin-dts": "^4.2.1"
+    "vite-plugin-dts": "^4.2.1",
+    "vite-plugin-static-copy": "^1.0.6"
   }
 }

@@ -2,13 +2,26 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
+import tailwindcss from "tailwindcss";
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), dts({ 
-    tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
-  })],
+  plugins: [
+    react(), 
+    dts({ 
+      tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
+    }),
+    viteStaticCopy({
+      targets: [
+        {
+          src: './tailwind.config.js',
+          dest: './'
+        }
+      ]
+    })
+  ],
   build: {
     copyPublicDir: false,
     lib: {
@@ -16,12 +29,21 @@ export default defineConfig({
       formats: ['es']
     },
     rollupOptions: {
-      external: ['react', 'react/jsx-runtime'],
+      external: ['react', 'react/jsx-runtime', 'tailwindcss'],
       output: {
         assetFileNames: 'assets/[name][extname]',
         entryFileNames: '[name].js',
-      }
+        globals: {
+          tailwindcss: "tailwindcss",
+        },
+      },
+      
     }
+  },
+  css: {
+    postcss: {
+      plugins: [tailwindcss],
+    },
   },
   resolve: {
     alias: {
@@ -29,3 +51,4 @@ export default defineConfig({
     },
   },
 })
+
