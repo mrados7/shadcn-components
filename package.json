@@ -19,6 +19,9 @@
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "files": ["dist"], 
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.0",
