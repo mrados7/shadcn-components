@@ -1,13 +1,14 @@
 {
-  "name": "shadcn-components",
+  "name": "@mrados7/shadcn-components",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b ./tsconfig.app.json && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "pnpm run build"
   },
   "exports": {
     ".": {
