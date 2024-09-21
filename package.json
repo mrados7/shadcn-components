@@ -1,7 +1,7 @@
 {
   "name": "@mrados7/shadcn-components",
   "private": false,
-  "version": "0.0.18",
+  "version": "0.0.19",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,7 +12,7 @@
   "exports": {
     ".": {
       "types": "./dist/main.d.ts",
-      "default": "./dist/src/main.js"
+      "default": "./dist/main.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
@@ -53,6 +53,7 @@
     "typescript": "^5.5.3",
     "vite": "^5.4.1",
     "vite-plugin-dts": "^4.2.1",
-    "vite-plugin-static-copy": "^1.0.6"
+    "vite-plugin-static-copy": "^1.0.6",
+    "glob": "^11.0.0"
   }
 }

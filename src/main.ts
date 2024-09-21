@@ -1,5 +1,5 @@
 export { Button, buttonVariants } from "./components/ui/button"
-// export { AlertDialog } from "./components/ui/alert-dialog"
+export { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, AlertDialogPortal, AlertDialogTitle, AlertDialogTrigger } from "./components/ui/alert-dialog"
 export {
   Carousel,
   CarouselContent,
