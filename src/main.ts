@@ -7,4 +7,5 @@ export {
   CarouselNext,
   CarouselPrevious,
  } from "./components/ui/carousel"
+export { Badge } from "./components/ui/badge"
 export { cn } from "./lib/utils"
