@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import { resolve, relative, extname } from 'path'
+import { resolve, relative, extname } from 'node:path'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import tailwindcss from "tailwindcss";
