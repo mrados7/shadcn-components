@@ -1,7 +1,7 @@
 {
   "name": "@mrados7/shadcn-components",
   "private": false,
-  "version": "0.0.21",
+  "version": "0.0.24",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,8 +13,7 @@
     ".": {
       "types": "./dist/main.d.ts",
       "default": "./dist/main.js"
-    },
-    "./dist/style.css": "./dist/style.css"
+    }
   },
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
