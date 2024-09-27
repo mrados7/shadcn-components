@@ -6,21 +6,21 @@
 * ⚠️ tailwind is requirement so install it first https://tailwindcss.com/docs/guides/vite
 * install package
   ```npm install shadcn-components```
-* add tailwind configuration for components to **tailwind.config.js**:
-```js
+* add tailwind configuration for components to **tailwind.config.ts**:
+```ts
+import { shadcnPreset } from "shadcn-components"
+
 /** @type {import('tailwindcss').Config} */
 export default {
   presets: [
-    require('./node_modules/shadcn-components/dist/tailwind.config.js')
+    shadcnPreset
   ],
-  content: [
-    "./node_modules/shadcn-components/dist/**/*.js",
+	content: [
+    "./src/**/*.{ts,tsx}",
+    "./node_modules/shadcn-components/**/*.{js,jsx,ts,tsx}"
   ],
-  theme: {
-  	extend: {}
-  },
-  plugins: [],
 }
+
 ```
 > Theme can be overwritten here and additional tailwind properties may be added. Check `./node_modules/shadcn-components/dist/tailwind.config.js` for base!
 
@@ -33,54 +33,131 @@ e.g.
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root  {
-    --background: 44 100% 99%;
-    --foreground: 44 5% 10%;
-    --card: 44 50% 99%;
-    --card-foreground: 44 5% 15%;
-    --popover: 44 100% 99%;
-    --popover-foreground: 44 100% 10%;
-    --primary: 44 100% 61.2%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 44 30% 90%;
-    --secondary-foreground: 0 0% 0%;
-    --muted: 6 30% 95%;
-    --muted-foreground: 44 5% 40%;
-    --accent: 6 30% 90%;
-    --accent-foreground: 44 5% 15%;
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 44 5% 99%;
-    --border: 44 30% 82%;
-    --input: 44 30% 50%;
-    --ring: 44 100% 61.2%;
-    --radius: 1rem;
-  }
-  
-  .dark  {
-    --background: 44 50% 10%;
-    --foreground: 44 5% 99%;
-    --card: 44 50% 10%;
-    --card-foreground: 44 5% 99%;
-    --popover: 44 50% 5%;
-    --popover-foreground: 44 5% 99%;
-    --primary: 44 100% 61.2%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 44 30% 20%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 6 30% 25%;
-    --muted-foreground: 44 5% 65%;
-    --accent: 6 30% 25%;
-    --accent-foreground: 44 5% 95%;
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 44 5% 99%;
-    --border: 44 30% 50%;
-    --input: 44 30% 50%;
-    --ring: 44 100% 61.2%;
-    --radius: 1rem;
-  }
+:root  {
+  --background: 199 18% 95%;
+  --foreground: 199 5% 10%;
+  --card: 199 18% 93%;
+  --card-foreground: 199 5% 15%;
+  --popover: 199 18% 95%;
+  --popover-foreground: 199 95% 10%;
+  --primary: 199 100% 55%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 199 18% 90%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 161 18% 93%;
+  --muted-foreground: 199 5% 40%;
+  --accent: 161 18% 90%;
+  --accent-foreground: 199 5% 15%;
+  --destructive: 0 50% 50%;
+  --destructive-foreground: 199 5% 93%;
+  --border: 199 20% 82%;
+  --input: 199 20% 50%;
+  --ring: 199 100% 55%;
+  --radius: 1rem;
+}
+.dark  {
+  --background: 199 18% 10%;
+  --foreground: 199 5% 93%;
+  --card: 199 18% 10%;
+  --card-foreground: 199 5% 93%;
+  --popover: 199 18% 5%;
+  --popover-foreground: 199 5% 93%;
+  --primary: 199 100% 55%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 199 18% 20%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 161 18% 25%;
+  --muted-foreground: 199 5% 65%;
+  --accent: 161 18% 25%;
+  --accent-foreground: 199 5% 93%;
+  --destructive: 0 50% 50%;
+  --destructive-foreground: 199 5% 93%;
+  --border: 199 20% 50%;
+  --input: 199 20% 50%;
+  --ring: 199 100% 55%;
+  --radius: 1rem;
+}
 }
 ```
+
+Theme can also be added to the global tailwind config using plugins.
+First convert generated theme to js code and add it to custom plugin.
+
+* create custom plugin
+  ```ts
+  import plugin from "tailwindcss/plugin";
+
+  export const customPlugin = plugin(
+    // 1. Add css variable definitions to the base layer
+    ({ addBase }) => {
+      addBase({
+        ":root": {
+          "--background": "199 18% 95%",
+          "--foreground": "199 5% 10%",
+          "--card": "199 18% 93%",
+          "--card-foreground": "199 5% 15%",
+          "--popover": "199 18% 95%",
+          "--popover-foreground": "199 95% 10%",
+          "--primary": "199 100% 55%",
+          "--primary-foreground": "0 0% 100%",
+          "--secondary": "199 18% 90%",
+          "--secondary-foreground": "0 0% 0%",
+          "--muted": "161 18% 93%",
+          "--muted-foreground": "199 5% 40%",
+          "--accent": "161 18% 90%",
+          "--accent-foreground": "199 5% 15%",
+          "--destructive": "0 50% 50%",
+          "--destructive-foreground": "199 5% 93%",
+          "--border": "199 20% 82%",
+          "--input": "199 20% 50%",
+          "--ring": "199 100% 55%",
+          "--radius": "1rem"
+        },
+        ".dark": {
+          "--background": "199 18% 10%",
+          "--foreground": "199 5% 93%",
+          "--card": "199 18% 10%",
+          "--card-foreground": "199 5% 93%",
+          "--popover": "199 18% 5%",
+          "--popover-foreground": "199 5% 93%",
+          "--primary": "199 100% 55%",
+          "--primary-foreground": "0 0% 100%",
+          "--secondary": "199 18% 20%",
+          "--secondary-foreground": "0 0% 100%",
+          "--muted": "161 18% 25%",
+          "--muted-foreground": "199 5% 65%",
+          "--accent": "161 18% 25%",
+          "--accent-foreground": "199 5% 93%",
+          "--destructive": "0 50% 50%",
+          "--destructive-foreground": "199 5% 93%",
+          "--border": "199 20% 50%",
+          "--input": "199 20% 50%",
+          "--ring": "199 100% 55%",
+          "--radius": "1rem"
+        }
+      });
+    }
+  );
+  ```
+
+* import plugin to tailwind config
+
+  ```ts
+  import { shadcnPreset } from "shadcn-components"
+  import { customPlugin } from "./custom-plugin"
+
+  /** @type {import('tailwindcss').Config} */
+  export default {
+    presets: [
+      shadcnPreset
+    ],
+    plugins: [customPlugin],
+    content: [
+      "./src/**/*.{ts,tsx}",
+      "./node_modules/shadcn-components/**/*.{js,jsx,ts,tsx}"
+    ],
+  }
+  ```
 
 ### Usage
 ```tsx
