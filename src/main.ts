@@ -12,4 +12,4 @@ export { Calendar } from "@/components/ui/calendar";
 export { cn } from "@/lib/utils";
 
 export { shadcnPreset } from "@/tailwind/preset/shadcn-preset";
-export * as theme from "./theme";
+export * from "@/theme";
