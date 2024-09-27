@@ -10,4 +10,6 @@ export { Badge } from "./components/ui/badge";
 export { Calendar } from "./components/ui/calendar";
 export { cn } from "./lib/utils";
 
-export * from "./theme";
+export { ThemeProvider } from "@/theme/ThemeProvider";
+export { shadcnPreset } from "@/tailwind/preset/shadcn-preset";
+

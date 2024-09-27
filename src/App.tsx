@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ThemeProvider } from "@/theme";
+import { ThemeProvider } from "@/main";
 import type React from "react";
 
 interface IProps {}
