@@ -9,3 +9,5 @@ export {
 export { Badge } from "./components/ui/badge";
 export { Calendar } from "./components/ui/calendar";
 export { cn } from "./lib/utils";
+
+export * from "./theme";
