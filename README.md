@@ -15,7 +15,7 @@ export default {
   presets: [
     shadcnPreset
   ],
-	content: [
+  content: [
     "./src/**/*.{ts,tsx}",
     "./node_modules/shadcn-components/**/*.{js,jsx,ts,tsx}"
   ],
