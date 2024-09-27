@@ -4,6 +4,6 @@ import animatePlugin from "tailwindcss-animate";
 
 export const shadcnPreset = {
   darkMode: ["class"],
-	content: [],
+	content: ["**.{ts,tsx, js, jsx}"],
   plugins: [shadcnPlugin, animatePlugin]
 } satisfies Config;

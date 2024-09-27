@@ -119,5 +119,6 @@ export const shadcnPlugin = plugin(
 				},
 			},
 		},
+		content: ["**.{ts,tsx, js, jsx}"],
 	},
 );
